@@ -10,7 +10,7 @@ h1 {
   text-align: center;
 }
 
-.content {
+#input .content {
   margin-left: 80px;
   margin-top: 50px;
 }
@@ -20,7 +20,6 @@ h1 {
 }
 
 .user-details {
-  border: 1px red solid;
   margin-top: 40px;
   width: 40%;
 }
@@ -55,4 +54,13 @@ h1 {
 #output {
   margin-inline: auto;
   width: 1000px;
+}
+
+#output .content {
+  height: calc(297px * 3);
+  width: calc(210px * 3);
+  border: 1px solid black;
+  margin-inline: auto;
+  margin-top: 50px;
+  font-size: .8rem;
 }
