@@ -1,4 +1,6 @@
-export default function Output({outputDetails}) {
+import PropTypes from "prop-types";
+
+function Output({ outputDetails }) {
   return (
     <div id="output">
       <div className="content">
@@ -9,3 +11,9 @@ export default function Output({outputDetails}) {
     </div>
   )
 }
+
+Output.propTypes = {
+  outputDetails: PropTypes.object.isRequired,
+}
+
+export default Output;

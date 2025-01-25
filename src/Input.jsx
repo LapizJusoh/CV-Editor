@@ -1,6 +1,6 @@
-//import submitPersonalDetails from "./SubmitPersonalDetails";
+import PropTypes from "prop-types";
 
-export default function Input( {inputDetails, sendToParent, returnOutput} ) {
+function Input( {inputDetails, sendToParent, returnOutput} ) {
 
   return (
     <div id="input">
@@ -82,4 +82,12 @@ export default function Input( {inputDetails, sendToParent, returnOutput} ) {
       </div>
     </div>
   );
+};
+
+Input.propTypes = {
+  inputDetails: PropTypes.object.isRequired,
+  sendToParent: PropTypes.func,
+  returnOutput: PropTypes.func,
 }
+
+export default Input;
