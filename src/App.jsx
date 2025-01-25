@@ -5,35 +5,52 @@ import Input from './Input';
 // name, email address
 
 function App() {
-  const [personalDetails, setPersonalDetails] = useState({
-    userName: "",
-    email: "",
-    phone: "",
-  });
 
-  const [finalOutput, setFinalOutput] = useState( {
-    userName: "",
-    email: "",
-    phone: "",
-  });
+  const initialData = {
+    personal: {
+      userName: "",
+      email: "",
+      phone: ""
+    },
+    education: {
+      schoolName: "",
+      studyTitle: "",
+      studyDate: "",
+    },
+    work: {
+      companyName: "",
+      positionTitle: "",
+      responsibilities: "",
+      dateStart: "",
+      dateEnd: ""
+    }
+  };
 
-  function handleClick(data) {
-    setPersonalDetails(data);
+  const [inputDetails, setInputDetails] = useState(initialData);
+
+  const [finalOutput, setFinalOutput] = useState(initialData);
+
+  function onChange(data) {
+    setInputDetails(data);
   }
 
-  function updateOutput(e) {
+  function submitOutput(e) {
     e.preventDefault();
-    setFinalOutput(personalDetails);
+    setFinalOutput(inputDetails);
   }
 
   return (
     <div>
-      <Input personalDetails={personalDetails} sendToParent={handleClick} updateOutput={updateOutput}/>
+      <Input
+        inputDetails={inputDetails}
+        sendToParent={onChange}
+        returnOutput={submitOutput}
+      />
       <div id="output">
         <div className="content">
-          <h1>{finalOutput.userName}</h1>
-          <h1>{finalOutput.email}</h1>
-          <h1>{finalOutput.phone}</h1>
+          <h1>{finalOutput.personal.userName}</h1>
+          <h1>{finalOutput.personal.email}</h1>
+          <h1>{finalOutput.personal.phone}</h1>
         </div>
       </div>
     </div>

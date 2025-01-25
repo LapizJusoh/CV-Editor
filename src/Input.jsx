@@ -1,10 +1,11 @@
 //import submitPersonalDetails from "./SubmitPersonalDetails";
 
-export default function Input( {personalDetails, sendToParent, updateOutput} ) {
+export default function Input( {inputDetails, sendToParent, returnOutput} ) {
 
   return (
     <div id="input">
       <div className="container">
+
         <h1 id="title">Personal Details</h1>
         <div className="content">
           <form>
@@ -16,11 +17,14 @@ export default function Input( {personalDetails, sendToParent, updateOutput} ) {
                 <input
                   type="text"
                   id="userName"
-                  value={personalDetails.userName}
+                  value={inputDetails.personal.userName}
                   onChange={(e) =>
                     sendToParent({
-                      ...personalDetails,
-                      userName: e.target.value,
+                      ...inputDetails,
+                      personal: {
+                        ...inputDetails.personal,
+                        userName: e.target.value,
+                      }
                     })
                   }
                   placeholder="Insert your name here"
@@ -33,11 +37,14 @@ export default function Input( {personalDetails, sendToParent, updateOutput} ) {
                 <input
                   type="mail"
                   id="userEmail"
-                  value={personalDetails.email}
+                  value={inputDetails.personal.email}
                   onChange={(e) =>
                     sendToParent({
-                      ...personalDetails,
-                      email: e.target.value,
+                      ...inputDetails,
+                      personal: {
+                        ...inputDetails.personal,
+                        email: e.target.value,
+                      }
                     })
                   }
                   placeholder="Insert your email here"
@@ -50,11 +57,14 @@ export default function Input( {personalDetails, sendToParent, updateOutput} ) {
                 <input
                   type="text"
                   id="userPhone"
-                  value={personalDetails.phone}
+                  value={inputDetails.personal.phone}
                   onChange={(e) =>
                     sendToParent({
-                      ...personalDetails,
-                      phone: e.target.value,
+                      ...inputDetails,
+                      personal: {
+                        ...inputDetails.personal,
+                        phone: e.target.value,
+                      }
                     })
                   }
                   placeholder="Insert your email here"
@@ -65,7 +75,7 @@ export default function Input( {personalDetails, sendToParent, updateOutput} ) {
               type="submit"
               id="personal-detail-submit"
               value="Submit"
-              onClick={(e) => updateOutput(e)}
+              onClick={(e) => returnOutput(e)}
             />
           </form>
         </div>
