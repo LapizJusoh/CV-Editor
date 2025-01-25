@@ -1,6 +1,7 @@
 import './App.css'
 import { useState } from 'react';
-import Input from './Input';
+import Input from './Input.jsx';
+import Output from './Output.jsx';
 
 // name, email address
 
@@ -27,7 +28,6 @@ function App() {
   };
 
   const [inputDetails, setInputDetails] = useState(initialData);
-
   const [finalOutput, setFinalOutput] = useState(initialData);
 
   function onChange(data) {
@@ -46,13 +46,9 @@ function App() {
         sendToParent={onChange}
         returnOutput={submitOutput}
       />
-      <div id="output">
-        <div className="content">
-          <h1>{finalOutput.personal.userName}</h1>
-          <h1>{finalOutput.personal.email}</h1>
-          <h1>{finalOutput.personal.phone}</h1>
-        </div>
-      </div>
+      <Output
+        outputDetails={finalOutput}
+      />
     </div>
   )
 }
