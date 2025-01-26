@@ -10,6 +10,10 @@ h1 {
   text-align: center;
 }
 
+form > div {
+  margin-top: 30px;
+}
+
 #input .content {
   margin-left: 80px;
   margin-top: 50px;
@@ -37,7 +41,7 @@ h1 {
   padding-inline: 5px;
 }
 
-#personal-detail-submit {
+#form-submit-btn {
   height: 50px;
   width: 100px;
   border-radius: 5px;
@@ -46,8 +50,8 @@ h1 {
   cursor: pointer;
 }
 
-#personal-detail-submit:hover,
-#personal-detail-submit:active {
+#form-submit-btn:hover,
+#form-submit-btn:active {
   background-color: #f7f7f7;
 }
 

@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import { useState } from 'react';
 import initialData from './InitialData.jsx';
 import Input from './Input.jsx';
@@ -13,7 +13,7 @@ function App() {
   function submitOutput(e, inputDetails) {
     e.preventDefault();
     setFinalOutput(inputDetails);
-  }
+  };
 
   return (
     <div>
@@ -25,6 +25,6 @@ function App() {
       />
     </div>
   )
-}
+};
 
-export default App
+export default App;
