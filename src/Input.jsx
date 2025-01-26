@@ -1,6 +1,14 @@
+import { useState } from 'react';
 import PropTypes from "prop-types";
+import initialData from "./InitialData.jsx";
 
-function Input( {inputDetails, sendToParent, returnOutput} ) {
+function Input( {returnOutput} ) {
+
+  const [inputDetails, setInputDetails] = useState(initialData);
+
+  function onChange(data) {
+    setInputDetails(data);
+  }
 
   return (
     <div id="input">
@@ -19,7 +27,7 @@ function Input( {inputDetails, sendToParent, returnOutput} ) {
                   id="userName"
                   value={inputDetails.personal.userName}
                   onChange={(e) =>
-                    sendToParent({
+                    onChange({
                       ...inputDetails,
                       personal: {
                         ...inputDetails.personal,
@@ -39,7 +47,7 @@ function Input( {inputDetails, sendToParent, returnOutput} ) {
                   id="userEmail"
                   value={inputDetails.personal.email}
                   onChange={(e) =>
-                    sendToParent({
+                    onChange({
                       ...inputDetails,
                       personal: {
                         ...inputDetails.personal,
@@ -59,7 +67,7 @@ function Input( {inputDetails, sendToParent, returnOutput} ) {
                   id="userPhone"
                   value={inputDetails.personal.phone}
                   onChange={(e) =>
-                    sendToParent({
+                    onChange({
                       ...inputDetails,
                       personal: {
                         ...inputDetails.personal,
@@ -75,7 +83,7 @@ function Input( {inputDetails, sendToParent, returnOutput} ) {
               type="submit"
               id="personal-detail-submit"
               value="Submit"
-              onClick={(e) => returnOutput(e)}
+              onClick={(e) => returnOutput(e, inputDetails)}
             />
           </form>
         </div>
@@ -85,7 +93,6 @@ function Input( {inputDetails, sendToParent, returnOutput} ) {
 };
 
 Input.propTypes = {
-  inputDetails: PropTypes.object.isRequired,
   sendToParent: PropTypes.func,
   returnOutput: PropTypes.func,
 }

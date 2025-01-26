@@ -1,5 +1,6 @@
 import './App.css'
 import { useState } from 'react';
+import initialData from './InitialData.jsx';
 import Input from './Input.jsx';
 import Output from './Output.jsx';
 
@@ -7,34 +8,9 @@ import Output from './Output.jsx';
 
 function App() {
 
-  const initialData = {
-    personal: {
-      userName: "",
-      email: "",
-      phone: ""
-    },
-    education: {
-      schoolName: "",
-      studyTitle: "",
-      studyDate: "",
-    },
-    work: {
-      companyName: "",
-      positionTitle: "",
-      responsibilities: "",
-      dateStart: "",
-      dateEnd: ""
-    }
-  };
-
-  const [inputDetails, setInputDetails] = useState(initialData);
   const [finalOutput, setFinalOutput] = useState(initialData);
 
-  function onChange(data) {
-    setInputDetails(data);
-  }
-
-  function submitOutput(e) {
+  function submitOutput(e, inputDetails) {
     e.preventDefault();
     setFinalOutput(inputDetails);
   }
@@ -42,8 +18,6 @@ function App() {
   return (
     <div>
       <Input
-        inputDetails={inputDetails}
-        sendToParent={onChange}
         returnOutput={submitOutput}
       />
       <Output
